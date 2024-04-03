@@ -4,10 +4,10 @@ config = configparser.ConfigParser()
 config.read('dwh.cfg')
 
 # DROP TABLES
+staging_business_table_drop = "DROP TABLE IF EXISTS staging_business"
+staging_review_table_drop = "DROP TABLE IF EXISTS staging_review"
 staging_tip_table_drop = "DROP TABLE IF EXISTS staging_tip"
 staging_user_table_drop = "DROP TABLE IF EXISTS staging_user"
-staging_review_table_drop = "DROP TABLE IF EXISTS staging_review"
-staging_business_table_drop = "DROP TABLE IF EXISTS staging_business"
 dim_users_table_drop = "DROP TABLE IF EXISTS dim_users"
 dim_location_table_drop = "DROP TABLE IF EXISTS dim_location"
 dim_business_table_drop = "DROP TABLE IF EXISTS dim_business"
@@ -57,56 +57,14 @@ staging_business_table_create= ("""
                             postal_code VARCHAR(32),
                             latitude REAL,
                             longitude REAL,
-                            stars REAL, 
+                            stars REAL,
                             review_count INTEGER,
                             is_open INTEGER,
-                            categories VARCHAR(1024),
-                            Monday VARCHAR(256),
-                            Tuesday VARCHAR(256),
-                            Wednesday VARCHAR(256),
-                            Thursday VARCHAR(256),
-                            Friday VARCHAR(256),
-                            Saturday VARCHAR(256),
-                            Sunday VARCHAR(256),
                             ByAppointmentOnly VARCHAR(256),
-                            Caters VARCHAR(256),
                             RestaurantsTakeOut VARCHAR(256),
                             Alcohol VARCHAR(256),
-                            RestaurantsCounterService VARCHAR(256),
-                            BestNights VARCHAR(256),
-                            CoatCheck VARCHAR(256),
                             WiFi VARCHAR(256),
-                            BusinessAcceptsBitcoin VARCHAR(256),
-                            RestaurantsReservations VARCHAR(256),
-                            AcceptsInsurance VARCHAR(256),
-                            RestaurantsDelivery VARCHAR(256),
-                            Smoking VARCHAR(256),
-                            GoodForMeal VARCHAR(256),
-                            DietaryRestrictions VARCHAR(256),
-                            Corkage VARCHAR(256),
-                            GoodForDancing VARCHAR(256),
-                            BYOBCorkage VARCHAR(256),
-                            DriveThru VARCHAR(256),
-                            NoiseLevel VARCHAR(256),
-                            BYOB VARCHAR(256),
-                            RestaurantsAttire VARCHAR(256),
-                            Ambience VARCHAR(256),
-                            RestaurantsPriceRange2 VARCHAR(256),
-                            Music VARCHAR(256),
-                            OutdoorSeating VARCHAR(256),
-                            BusinessAcceptsCreditCards VARCHAR(256),
-                            HasTV VARCHAR(256),
-                            GoodForKids VARCHAR(256),
-                            HairSpecializesIn VARCHAR(256),
-                            WheelchairAccessible VARCHAR(256),
-                            RestaurantsTableService VARCHAR(256),
-                            BikeParking VARCHAR(256),
-                            BusinessParking VARCHAR(256),
-                            RestaurantsGoodForGroups VARCHAR(256),
-                            HappyHour VARCHAR(256),
-                            DogsAllowed VARCHAR(256),
-                            AgesAllowed VARCHAR(256),
-                            Open24Hours VARCHAR(256) )
+                            BusinessAcceptsBitcoin VARCHAR(256) )
                             """)
 
 dim_users_table_create = ("""
@@ -133,7 +91,6 @@ dim_business_table_create = ("""
                     name VARCHAR(256) NOT NULL,
                     is_open INTEGER,
                     address VARCHAR(1024),
-                    categories VARCHAR(1024),
                     ByAppointmentOnly VARCHAR(256),
                     RestaurantsTakeOut VARCHAR(256),
                     Alcohol VARCHAR(256),
