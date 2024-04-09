@@ -1,13 +1,13 @@
 import json
 import boto3
 
-def json_to_dict(json_path:str) -> list:
-    """Transform yelp json to list with dictionary
-        and extract 10000 records.
+def json_to_dict(json_path:str) -> json:
+    """Transform yelp json to matrix json
+        and extract 5000 records.
     Args:
         json_path (str): json path.
     Returns:
-        yelp_data (list): dict with yelp data.
+        data_extract (json): file with yelp data.
     """
     yelp_data = []
     with open(json_path, 'r', encoding='utf-8') as f:
@@ -16,12 +16,14 @@ def json_to_dict(json_path:str) -> list:
                 yelp_data.append(json.loads(line))
             except json.decoder.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
-    return yelp_data[:10000]
+    data_extract = yelp_data[:5000]
+    data_extract = ''.join([json.dumps(obj) for obj in data_extract])
+    return data_extract
 
-def insert_into_s3(yelp_data:list, s3_file_name:str) -> None:
+def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
     """Insert yelp data into Amazon S3.
     Args:
-        yelp_data (list): Data to insert into S3.
+        yelp_data (json): Data to insert into S3.
         s3_file_name (str): Name of the file to insert into S3.
     Returns:
         None
@@ -29,7 +31,7 @@ def insert_into_s3(yelp_data:list, s3_file_name:str) -> None:
     s3_client = boto3.client('s3', 
         aws_access_key_id='YOUR_ACCESS_KEY', 
         aws_secret_access_key='YOUR_SECRET_ACCESS_KEY', 
-        region_name='YOUR_REGION_NAME')
+        region_name='YOUR_REGION')
     s3_client.put_object(
         Body=json.dumps(yelp_data),
         Bucket='streaming-bucket-1',
@@ -41,7 +43,7 @@ def iter_yelp_files() -> None:
     Returns:
         None
     """
-    directory_path = r'D:\GIT\yelp_dataset'
+    directory_path = r'YOUR_RAW_DIRECTORY_PATH'
     yelp_files_names = ['business', 'checkin', 'review', 'tip', 'user']
     for file_name in yelp_files_names:
         file_path = f'{directory_path}\\yelp_academic_dataset_{file_name}.json'
