@@ -1,0 +1,10 @@
+{
+  "jsonpaths":
+  [
+    "$['user_id']",
+    "$['name']",
+    "$['review_count']",
+    "$['average_stars']",
+    "$['yelping_since']"
+  ]
+}
