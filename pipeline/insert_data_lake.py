@@ -17,7 +17,7 @@ def json_to_dict(json_path:str) -> json:
             except json.decoder.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
     data_extract = yelp_data[:5000]
-    data_extract = ''.join([json.dumps(obj) for obj in data_extract])
+    data_extract = '\n'.join([json.dumps(obj) for obj in data_extract])
     return data_extract
 
 def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
