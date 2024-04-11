@@ -35,7 +35,7 @@ def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
     s3_client.put_object(
         Body=yelp_data,
         Bucket='streaming-bucket-1',
-        Key=f'yelp_files/{s3_file_name}.json')
+        Key=f'raw_yelp_files/{s3_file_name}.json')
     return None
 
 def iter_yelp_files() -> None:
