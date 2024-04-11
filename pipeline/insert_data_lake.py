@@ -33,7 +33,7 @@ def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
         aws_secret_access_key='YOUR_SECRET_ACCESS_KEY', 
         region_name='YOUR_REGION')
     s3_client.put_object(
-        Body=json.dumps(yelp_data),
+        Body=yelp_data,
         Bucket='streaming-bucket-1',
         Key=f'yelp_files/{s3_file_name}.json')
     return None
