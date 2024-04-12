@@ -18,6 +18,24 @@ def donwload_from_s3(s3_file_name:str) -> json:
     json_content = json_file['Body'].read().decode('utf-8')
     return json_content
 
+def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
+    """Insert yelp data into Amazon S3.
+    Args:
+        yelp_data (json): Data to insert into S3.
+        s3_file_name (str): Name of the file to insert into S3.
+    Returns:
+        None
+    """
+    s3_client = boto3.client('s3', 
+        aws_access_key_id='YOUR_ACCESS_KEY',
+        aws_secret_access_key='YOUR_SECRET_ACCESS_KEY', 
+        region_name='YOUR_REGION')
+    s3_client.put_object(
+        Body=yelp_data,
+        Bucket='streaming-bucket-1',
+        Key=f'staging_yelp_files/{s3_file_name}.json')
+    return None
+
 def transform_json(s3_file_name):
     output_file = []
     for line in s3_file_name.splitlines():
@@ -29,12 +47,27 @@ def transform_json(s3_file_name):
     clean_file = '\n'.join([json.dumps(obj) for obj in output_file])
     return clean_file
 
+def iter_yelp_files() -> None:
+    """Iterate yelp files to donwload from S3,
+    modify files, and insert into S3.
+    Returns:
+        None
+    """
+    yelp_files_names = ['business', 'review', 'tip', 'user']
+    ### falta un lostadod llaves a eliminar de cada dict/json
+    
+    for file_name in yelp_files_names:
+        if file_name == 'tip':
+            json_to_change = donwload_from_s3(file_name)
+            insert_into_s3(json_to_change, file_name)
+        else:  
+            json_to_change = donwload_from_s3(file_name)
+            clean_json = transform_json(json_to_change)
+            insert_into_s3(clean_json, file_name)
+    return None
+
 def main():
-    #### hacer un bucle de esto:
-    s3_file_name = 'tip'
-    json_to_change = donwload_from_s3(s3_file_name)
-    final_file = transform_json(json_to_change)
-    print(final_file)
+    iter_yelp_files()
 
 if __name__ == "__main__":
     main()
