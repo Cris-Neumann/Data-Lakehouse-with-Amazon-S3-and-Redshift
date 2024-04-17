@@ -1,4 +1,4 @@
-yelp_files_names = ['business', 'review', 'tip', 'user'] 
+yelp_files_names = ['business', 'review', 'tip', 'user']
 keys_to_remove = {'business':['categories', 'hours'],
     'user':['useful', 'funny', 'cool', 'elite', 'friends',
     'fans', 'compliment_hot', 'compliment_more',
