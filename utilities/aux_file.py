@@ -7,3 +7,5 @@ keys_to_remove = {'business':['categories', 'hours'],
     'compliment_plain', 'compliment_cool',
     'compliment_funny', 'compliment_writer',
     'compliment_photos']}
+attributes_cat = ['ByAppointmentOnly', 'RestaurantsTakeOut',
+                'Alcohol', 'WiFi', 'BusinessAcceptsBitcoin']
