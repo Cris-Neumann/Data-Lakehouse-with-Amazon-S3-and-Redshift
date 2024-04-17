@@ -1,5 +1,4 @@
 import configparser
-
 config = configparser.ConfigParser()
 config.read('dwh.cfg')
 
@@ -7,31 +6,34 @@ config.read('dwh.cfg')
 staging_tip_copy = ("""
                     copy staging_tip from {}
                     iam_role {}
-                    json{};
-                    """).format(config['S3']['TIP_DATA'] ,\
-                                config['IAM_ROLE']['ARN'], config['S3']['TIP_JSON_PATH'])
+                    json {};
+                    """).format(config['S3']['TIP_DATA'],\
+                                config['IAM_ROLE']['ARN_S3_REDSHIFT'],\
+                                config['S3']['TIP_JSONPATH'])
 
 staging_user_copy = ("""
                     copy staging_user from {}
                     iam_role {}
-                    delimiter ','
-                    """).format(config['S3']['USER_DATA'] ,\
-                                config['IAM_ROLE']['ARN'])
+                    json {};
+                    """).format(config['S3']['USER_DATA'],\
+                                config['IAM_ROLE']['ARN_S3_REDSHIFT'],\
+                                config['S3']['USER_JSONPATH'])
 
 staging_review_copy = ("""
                     copy staging_review from {}
                     iam_role {}
-                    json{};
-                    """).format(config['S3']['REVIEW_DATA'] ,\
-                                config['IAM_ROLE']['ARN'], config['S3']['REVIEW_JSON_PATH'])
+                    json {};
+                    """).format(config['S3']['REVIEW_DATA'],\
+                                config['IAM_ROLE']['ARN_S3_REDSHIFT'],\
+                                config['S3']['REVIEW_JSONPATH'])
             
-
 staging_business_copy = ("""
                     copy staging_business from {}
                     iam_role {}
-                    json{};
-                    """).format(config['S3']['BUSINESS_DATA'] ,\
-                    config['IAM_ROLE']['ARN'], config['S3']['BUSINESS_JSON_PATH'])
+                    json {};
+                    """).format(config['S3']['BUSINESS_DATA'],\
+                                config['IAM_ROLE']['ARN_S3_REDSHIFT'],\
+                                config['S3']['BUSINESS_JSONPATH'])
 
 # DIMENTION TABLES
 dim_users_table_insert = ("""
