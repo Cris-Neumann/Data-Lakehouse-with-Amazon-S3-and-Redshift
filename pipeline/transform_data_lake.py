@@ -1,53 +1,24 @@
+import os
+import sys
 import json
-import boto3
 import pandas as pd
 
-yelp_files_names = ['business', 'review', 'tip', 'user']    
-keys_to_remove = {'business':['categories', 'hours'],
-    'user':['useful', 'funny', 'cool', 'elite', 'friends',
-    'fans', 'compliment_hot', 'compliment_more',
-    'compliment_profile', 'compliment_cute',
-    'compliment_list', 'compliment_note',
-    'compliment_plain', 'compliment_cool',
-    'compliment_funny', 'compliment_writer',
-    'compliment_photos']}
-    
-def donwload_from_s3(s3_file_name:str) -> json:
-    """Download data from Amazon S3.
-    Args:
-        s3_file_name (str): Name of the file in S3.
-    Returns:
-        json_content (json): json with yelp data.
-    """
-    s3_client = boto3.client('s3', 
-        aws_access_key_id='YOUR_ACCESS_KEY', 
-        aws_secret_access_key='YOUR_SECRET_ACCESS_KEY',
-        region_name='sa-east-1')
-    json_file = s3_client.get_object(
-        Bucket='streaming-bucket-1',
-        Key=f'raw_yelp_files/{s3_file_name}.json')
-    json_content = json_file['Body'].read().decode('utf-8')
-    return json_content
+path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+os.chdir(path)
+sys.path.append(path)
+from utilities.connect_to_s3 import donwload_from_s3, insert_into_s3
+from utilities.aux_file import yelp_files_names, keys_to_remove, attributes_cat
 
-def insert_into_s3(yelp_data:json, s3_file_name:str) -> None:
-    """Insert yelp data into Amazon S3.
+def transform_json(s3_file:json, keys_to_remove:dict, file_name:str) -> json:
+    """Modify a json by removing certain given fields.
     Args:
-        yelp_data (json): Data to insert into S3.
-        s3_file_name (str): Name of the file to insert into S3.
+        s3_file (json): J file to modify.
+        keys_to_remove (dict): Fields to delete.
+        file_name (str): Name of the file that serves
+        as the dictionary key.
     Returns:
-        None
+        clean_file (json): Modified json.
     """
-    s3_client = boto3.client('s3', 
-        aws_access_key_id='YOUR_ACCESS_KEY',
-        aws_secret_access_key='YOUR_SECRET_ACCESS_KEY', 
-        region_name='sa-east-1')
-    s3_client.put_object(
-        Body=yelp_data,
-        Bucket='streaming-bucket-1',
-        Key=f'staging_yelp_files/{s3_file_name}.json')
-    return None
-
-def transform_json(s3_file, keys_to_remove, file_name):
     output_file = []
     for line in s3_file.splitlines():
         json_data = json.loads(line)
@@ -58,12 +29,12 @@ def transform_json(s3_file, keys_to_remove, file_name):
     return clean_file
 
 def process_record(record:dict, attributes_cat:list) -> pd.DataFrame:
-    """ Flatten dictionaries with one business data
+    """ Flatten dictionaries from certain given fields.
     Args:
-        record (dict): Dictionary with one business data.
+        record (dict): Dictionary of one row.
         attributes_cat (list): List with attributes.
     Returns:
-        new_df (DataFrame): DataFrame with flat record.
+        new_df (DataFrame): DataFrame with flat records.
     """
     flat_record = {
         "business_id": record.get('business_id'),
@@ -82,35 +53,38 @@ def process_record(record:dict, attributes_cat:list) -> pd.DataFrame:
     new_df = pd.DataFrame.from_dict([flat_record])
     return new_df
 
-def iter_yelp_files(files_names, keys_to_delete) -> None:
+def iter_yelp_files(files_names:list, keys_to_delete:dict, attributes_cat:list) -> None:
     """Iterate yelp files to donwload from S3,
-    modify files, and insert into S3.
+        modify files, and insert into S3.
+    Args:
+        files_names (list): Name of the files to modify.
+        keys_to_delete (dict): Fields to delete.
+        attributes_cat (list): List with fields to flatten
+    Returns:
         None
     """
     for file_name in files_names:
         if (file_name == 'tip') | (file_name == 'review'):
-            json_to_change = donwload_from_s3(file_name)
-            insert_into_s3(json_to_change, file_name)
+            json_to_change = donwload_from_s3(file_name, 'raw_yelp_files')
+            insert_into_s3(json_to_change, file_name, 'staging_yelp_files')
         else:  
-            json_to_change = donwload_from_s3(file_name)
+            json_to_change = donwload_from_s3(file_name, 'raw_yelp_files')
             clean_json = transform_json(json_to_change, keys_to_delete, file_name)
             if (file_name == 'business'):
                 json_file = []
                 for line in clean_json.splitlines():
                     json_file.append(json.loads(line))
-                attributes_cat = ['ByAppointmentOnly', 'RestaurantsTakeOut',
-                                  'Alcohol', 'WiFi', 'BusinessAcceptsBitcoin']
                 df = pd.DataFrame(columns=[ 'business_id', 'name', 'address',
                 'city', 'state', 'postal_code', 'latitude', 'longitude', 'stars',
                 'review_count', 'is_open'] + attributes_cat)
                 for record in json_file:
                     df = pd.concat([df, process_record(record, attributes_cat)])
                 clean_json = df.to_json(orient='records', lines=True)                
-            insert_into_s3(clean_json, file_name)
+            insert_into_s3(clean_json, file_name, 'staging_yelp_files')
     return None
 
 def main():
-    iter_yelp_files(yelp_files_names, keys_to_remove)
+    iter_yelp_files(yelp_files_names, keys_to_remove, attributes_cat)
 
 if __name__ == "__main__":
     main()
