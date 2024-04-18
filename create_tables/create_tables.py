@@ -10,6 +10,7 @@ from sql_queries.queries_create_tables import drop_table_queries, create_table_q
 
 def create_drop_tables(cur:psycopg2.extensions.cursor, queries_list:list):
     """ Perform operations on tables (create or drop) from a list of queries.
+    (with SHOW COLUMNS FROM TABLE dev.public.staging_tip see the table in Redshift)
     Args:
         cur (psycopg2.extensions.cursor): Cursor to send commands to Postgres DB.
         queries_list (list): List of queries to execute.
@@ -23,7 +24,7 @@ def create_drop_tables(cur:psycopg2.extensions.cursor, queries_list:list):
 def main():
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
-    conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
+    conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['REDSHIFT_CLUSTER'].values()))
     cur = conn.cursor()
     create_drop_tables(cur, drop_table_queries)
     create_drop_tables(cur, create_table_queries)
