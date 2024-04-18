@@ -138,7 +138,7 @@ fact_tip_table_insert = ("""
                             fact_datetime,
                             compliment_count)
                         SELECT 
-                            DISTINCT md5(user_id || business_id || date) as fact_tip_id,
+                            DISTINCT md5(user_id || T.business_id || date) as fact_tip_id,
                             T.user_id AS fact_user_id,
                             T.business_id as fact_business_id,
                             L.dim_location_id as fact_location_id,
