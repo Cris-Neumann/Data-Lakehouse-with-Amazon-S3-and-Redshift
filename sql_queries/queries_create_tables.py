@@ -1,8 +1,3 @@
-import configparser
-
-config = configparser.ConfigParser()
-config.read('dwh.cfg')
-
 # DROP TABLES
 staging_business_table_drop = "DROP TABLE IF EXISTS staging_business"
 staging_review_table_drop = "DROP TABLE IF EXISTS staging_review"
