@@ -46,7 +46,7 @@ dim_users_table_insert = ("""
                             user_id,
                             name,
                             yelping_since,
-                            datediff(week, yelping_sinc, current_date)
+                            datediff(week, yelping_since, current_date)
                         FROM staging_user
                         WHERE user_id IS NOT NULL
                         """)
