@@ -9,10 +9,9 @@ os.chdir(path)
 sys.path.append(path)
 from sql_queries.queries_etl import copy_table_queries, insert_dim_queries, insert_fact_queries, test_queries
 
-def copy_insert_tables(conn:psycopg2.extensions.connection, cur:psycopg2.extensions.cursor, queries_list:list):
+def copy_insert_tables(cur:psycopg2.extensions.cursor, queries_list:list):
     """ Perform operations on tables (insert or copy) from a list of queries.
     Args:
-        conn (psycopg2.extensions.connection): Connection to Postgres DB.
         cur (psycopg2.extensions.cursor): Cursor to send commands to Postgres DB.
         queries_list (list): List of queries to execute.
     Returns:
@@ -20,7 +19,6 @@ def copy_insert_tables(conn:psycopg2.extensions.connection, cur:psycopg2.extensi
     """
     for query in queries_list:
         cur.execute(query)
-        conn.commit()
     return None
 
 def test_tables(conn:psycopg2.extensions.connection, test_queries:list):
@@ -39,12 +37,13 @@ def test_tables(conn:psycopg2.extensions.connection, test_queries:list):
 def main():
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
-    conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
+    conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['REDSHIFT_CLUSTER'].values()))
     cur = conn.cursor()
-    copy_insert_tables(cur, conn, copy_table_queries)
-    copy_insert_tables(cur, conn, insert_dim_queries)
-    copy_insert_tables(cur, conn, insert_fact_queries)
+    copy_insert_tables(cur, copy_table_queries)
+    copy_insert_tables(cur, insert_dim_queries)
+    copy_insert_tables(cur, insert_fact_queries)
     test_tables(conn, test_queries)
+    conn.commit()
     conn.close()
 
 if __name__ == "__main__":
