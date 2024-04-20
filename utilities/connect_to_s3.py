@@ -10,7 +10,7 @@ def donwload_from_s3(file_name:str, dir_name:str) -> json:
         file_name (str): Name of the file in S3.
         dir_name (str): Directory of the data to extract.
     Returns:
-        json_content (json): json with transform data.
+        json_content (json): json with S3 data.
     """
     s3_client = boto3.client('s3', 
         aws_access_key_id=config['S3']['AWS_ACCESS_KEY_ID'],
