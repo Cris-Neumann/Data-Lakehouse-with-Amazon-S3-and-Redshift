@@ -1,4 +1,4 @@
-boto3
 configparser
 psycopg2
 pymongo
+boto3
