@@ -1645,31 +1645,35 @@
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='11' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='98000' id='9' type='layout-basic' w='98400' x='800' y='1000'>
-              <zone h='57625' id='3' name='Calificación por ciudad' w='49200' x='800' y='1000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='40375' id='5' name='Detalle locales por ciudad' w='98400' x='800' y='58625'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='57625' id='8' name='Locales por ciudad' w='49200' x='50000' y='1000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
+          <zone h='98000' id='23' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='20' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+              <zone h='98000' id='11' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='98000' id='9' type='layout-basic' w='98400' x='800' y='1000'>
+                  <zone h='40376' id='5' name='Detalle locales por ciudad' w='98400' x='800' y='58624'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='57624' id='8' name='Locales por ciudad' w='49200' x='50000' y='1000'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='57624' id='21' name='Calificación por ciudad' w='49200' x='800' y='1000'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
               </zone>
             </zone>
           </zone>
@@ -1685,9 +1689,9 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='900' minheight='900' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='16' type='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='17' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
-                <zone fixed-size='280' h='57625' id='3' is-fixed='true' name='Calificación por ciudad' w='49200' x='800' y='1000'>
+            <zone h='100000' id='24' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='25' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='57624' id='21' is-fixed='true' name='Calificación por ciudad' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1696,7 +1700,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='57625' id='8' is-fixed='true' name='Locales por ciudad' w='49200' x='50000' y='1000'>
+                <zone fixed-size='280' h='57624' id='8' is-fixed='true' name='Locales por ciudad' w='49200' x='50000' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1705,7 +1709,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='40375' id='5' is-fixed='true' name='Detalle locales por ciudad' w='98400' x='800' y='58625'>
+                <zone fixed-size='280' h='40376' id='5' is-fixed='true' name='Detalle locales por ciudad' w='98400' x='800' y='58624'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1729,7 +1733,7 @@
     </dashboard>
   </dashboards>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
-    <window class='worksheet' maximized='true' name='Calificación por ciudad'>
+    <window class='worksheet' name='Calificación por ciudad'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1836,7 +1840,7 @@
       </viewpoint>
       <simple-id uuid='{137A264F-7683-4BC2-9279-20B18B95F55B}' />
     </window>
-    <window class='dashboard' name='Dashboard Yelp Data Example'>
+    <window class='dashboard' maximized='true' name='Dashboard Yelp Data Example'>
       <viewpoints>
         <viewpoint name='Calificación por ciudad' />
         <viewpoint name='Detalle locales por ciudad' />
