@@ -5,6 +5,7 @@
 - [Resumen del proyecto](#Resumen-del-proyecto)
 - [Arquitectura empleada](#Arquitectura-empleada)
 - [Modelado de datos](#Modelado-de-datos)
+- [Detalles de ejecución](#Detalles-de-ejecución)
 
 ## Resumen del proyecto
 Este proyecto de Data Lakehouse se alimenta desde una base de datos NoSQL MongoDB, la cual almacena el dataset de Yelp
@@ -52,4 +53,5 @@ llamadas tablas de "hechos" (medidas de negocio) y "dimensiones" (atributos de l
 	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/2b9056f1-734c-477b-8f9b-9e30b4a5d1de">
 </div>
 
+## Detalles de ejecución
 
