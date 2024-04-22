@@ -21,4 +21,11 @@ Yelp es una plataforma que recopila información sobre negocios del entorno en t
 par que sus propietarios puedan conectar con sus clientes y fomentar sus negocios. El dataset de Yelpconsta de 5 archivos json, cada uno con información
 distinta acerca del negocio, los cuales son:
 
+-  business.json: Contiene datos comerciales, incluidos datos de ubicación, atributos y categorías.
+-  checkin.json: Registros en un negocio (su id y fecha).
+-  review.json: Contiene datos completos del texto de la reseña, incluido el id de usuario que escribió la reseña y el id de empresa para la cual se escribió la reseña.
+-  tip.json: Consejos escritos por un usuario sobre un negocio. Los consejos son más breves que las reseñas y tienden a transmitir sugerencias rápidas.
+-  user.json:	Datos del usuario, incluida la asignación de amigos del usuario y todos los metadatos asociados con el usuario.
+
+
 
