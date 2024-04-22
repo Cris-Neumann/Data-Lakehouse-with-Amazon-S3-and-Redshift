@@ -32,7 +32,7 @@ Estos son los atributos que tienen cada archivo json en bruto, donde los campos 
 <img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/a78b6bc8-e269-45be-9bbe-28fd1699ff3b">
 
 | First Header  | Second Header |
-| ------------- | ------------- |
+| :---:  | :---:  |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
