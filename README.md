@@ -6,6 +6,7 @@
 - [Arquitectura empleada](#Arquitectura-empleada)
 - [Modelado de datos](#Modelado-de-datos)
 - [Detalles de ejecución](#Detalles-de-ejecución)
+- [Dashboard y preguntas de negocio](#Dashboard-y-preguntas-de-negocio)
 
 ## Resumen del proyecto
 Este proyecto de Data Lakehouse se alimenta desde una base de datos NoSQL MongoDB, la cual almacena el dataset de Yelp
@@ -78,4 +79,6 @@ el jsonpath tiene la siguiente estructura:
 **3)** Al ejecutar el script insert_data_lake.py se cargará el dataset de Yelp desde MongoDB hacia Amazon S3. </br>
 **4)** Luego, con la ejecución del script transform_data_lake.py se modifican los formatos de los json anidados y se reduce el volumen de datos. </br>
 **5)** Finalmente, con la ejecución del script etl_data_warehouse.py se insertan todos los registros de S3 en el Data Warehouse de Redshift.
+
+## Dashboard y preguntas de negocio
 
