@@ -11,6 +11,6 @@ reducir en volumen (AWS free tier tiene limte de 5GB para S3) e insertar en un b
 como Data Lake. Posteriormente, son modificados los archivos para obtener sólo los atributos que interesan procesar, y guardar
 en directorio stagging en el mismo bucket de S3. El paso siguiente es modelar los datos para generar un esquema constelación
 de Data Warehouse de ejemplo, el cual es implementado en Amazon Redshift, dada su estructra orientada a columnas,
-y por ende ideal para analítica y reporting, y es poblado con datos provenientes de S3 mediante la conexión nativa en AWS con
+y por ende ideal para analítica y reporting, y es poblado con datos provenientes del bucket mediante la conexión nativa en AWS con
 Redshift, usando el metodo "copy" y su opción "jsonpath". Finalmente, se muestra un ejemplo de la conexion por defecto que trae
 Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de datos.
