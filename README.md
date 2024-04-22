@@ -23,8 +23,8 @@ El dataset de Yelp consta de 5 archivos json, cada uno con información distinta
 
 -  business.json: Contiene datos comerciales, incluidos datos de ubicación, atributos y categorías.
 -  checkin.json: Registros en un negocio (su id y fecha).
--  review.json: Contiene datos completos del texto de la reseña, incluido el id de usuario que escribió la reseña y el id de empresa para la cual se escribió la reseña.
--  tip.json: Consejos escritos por un usuario sobre un negocio. Los consejos son más breves que las reseñas y tienden a transmitir sugerencias rápidas.
+-  review.json: Contiene el texto de la reseña, incluido el id de usuario que escribió la reseña y el id de empresa para la cual la escribió.
+-  tip.json: Consejos escritos por un usuario sobre un negocio. Los consejos son más breves que las reseñas y transmiten sugerencias rápidas.
 -  user.json:	Datos del usuario, incluida la asignación de amigos del usuario y todos los metadatos asociados con el usuario.
 
 
