@@ -33,4 +33,9 @@ Estos son los atributos que tienen cada archivo json en bruto, donde los campos 
 	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
 </div>
 
+Luego de la transformación en el bucket de S3 para cargar los archivos modificados en staging, los archivos json quedan con estos atributos:
+
+<div align="center">
+	<img width="550" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
+</div>
 
