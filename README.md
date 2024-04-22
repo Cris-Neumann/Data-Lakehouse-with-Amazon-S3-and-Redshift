@@ -7,6 +7,7 @@
 - [Modelado de datos](#Modelado-de-datos)
 - [Detalles de ejecución](#Detalles-de-ejecución)
 - [Dashboard y preguntas de negocio](#Dashboard-y-preguntas-de-negocio)
+- [Instalaciones adicionales](#Instalaciones-adicionales)
 
 ## Resumen del proyecto
 Este proyecto de Data Lakehouse se alimenta desde una base de datos NoSQL MongoDB, la cual almacena el dataset de Yelp
@@ -82,3 +83,5 @@ el jsonpath tiene la siguiente estructura:
 
 ## Dashboard y preguntas de negocio
 A continuación una vista diseñada en Tableau, dado su conexión incorporada con Redshift, alojada en directorio 'dashboard', con ...
+
+## Instalaciones adicionales
