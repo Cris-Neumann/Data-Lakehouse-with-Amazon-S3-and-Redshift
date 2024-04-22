@@ -7,7 +7,7 @@
 
 ## Resumen del proyecto
 Este proyecto de Data Lakehouse se alimenta desde una base de datos NoSQL MongoDB, la cual almacena el dataset de Yelp
-(en Kaggle: https://acortar.link/vl8Q5S) en colecciones de datos, a las cuales se accede mediante API de Python para
+(ver en Kaggle: https://acortar.link/vl8Q5S) en colecciones de datos, a las cuales se accede mediante API de Python para
 reducir en volumen (AWS free tier tiene limte de 5GB para S3) e insertar en un bucket de Amazon S3 para almcenamiento de archivos json en bruto
 como Data Lake. Posteriormente, son modificados los archivos para obtener sólo los atributos que interesan procesar, y guardar
 en directorio staging en el mismo bucket de S3. El paso siguiente es modelar los datos para generar un esquema constelación
@@ -27,16 +27,18 @@ El dataset de Yelp consta de 5 archivos json, cada uno con información distinta
 -  tip.json: Consejos escritos por un usuario sobre un negocio. Los consejos son más breves que las reseñas y transmiten sugerencias rápidas.
 -  user.json:	Datos del usuario, incluida la asignación de amigos del usuario y todos los metadatos asociados con el usuario.
 
-Estos son los atributos que tiene cada archivo json en bruto, donde los campos entre llaves ('{}') son campos anidados del dataset:
+Estos son los atributos que tiene cada archivo json en bruto en MongoDB, donde los campos entre llaves ('{}') son campos anidados del dataset:
 
 <div align="center">
 	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
 </div>
 
-Luego de la transformación en el bucket de S3 para cargar los archivos modificados en staging, los archivos json quedan con estos atributos, donde los últimos
-campos del json "business" contiene campos extraidos desde el campo anidado "attributes":
+Luego de la transformación ejecutada en el bucket de S3 para cargar los archivos modificados en staging, los archivos json quedan con estos atributos,
+donde los últimos campos del json "business" contiene campos extraidos desde el campo anidado "attributes":
 
 <div align="center">
 	<img width="550" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
 </div>
 
+Finalmente, luego de tener los datos preprocedaos en S3 y listos para insertar a Redshift, el esquema de ejemplo que se utilizará como Data Warehouse es uno llamado
+"esquema constelación" (ver en web de IBM: https://acortar.link/qWSUMB)
