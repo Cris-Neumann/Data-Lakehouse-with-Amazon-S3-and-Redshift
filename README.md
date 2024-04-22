@@ -33,8 +33,8 @@ Estos son los atributos que tiene cada archivo json en bruto en MongoDB, donde l
 	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
 </div>
 
-Luego de la transformación ejecutada en el bucket de S3 para cargar los archivos modificados en staging, los archivos json quedan con estos atributos,
-donde los últimos campos del json "business" contiene campos extraidos desde el campo anidado "attributes":
+Luego de la transformación ejecutada en el bucket de S3 para cargar los archivos modificados en staging, la cual reduce el volumen de los datos, dada la limitación
+de espacio en AWS free tier, los archivos json quedan con estos atributos, donde los últimos campos del json "business" contiene campos extraidos desde el campo anidado "attributes":
 
 <div align="center">
 	<img width="550" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
