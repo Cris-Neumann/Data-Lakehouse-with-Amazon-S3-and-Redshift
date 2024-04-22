@@ -3,6 +3,7 @@
 ## Índice
 
 - [Resumen del proyecto](#Resumen-del-proyecto)
+- [Modelado de datos](#Modelado-de-datos)
 
 ## Resumen del proyecto
 Este proyecto de Data Lakehouse se alimenta desde una base de datos NoSQL MongoDB, la cual almacena el dataset de Yelp
@@ -14,3 +15,10 @@ de Data Warehouse de ejemplo, el cual es implementado en Amazon Redshift, dada s
 y por ende ideal para analítica y reporting, y es poblado con datos provenientes del bucket mediante la conexión nativa entre S3 y
 Redshift, usando el metodo "copy" y su opción "jsonpath". Finalmente, se muestra un ejemplo de la conexion por defecto que trae
 Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de los datos.
+
+## Modelado de datos
+Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio, y
+par que sus propietarios puedan conectar con sus clientes y fomentar sus negocios. El dataset de Yelpconsta de 5 archivos json, cada uno con información
+distinta acerca del negocio, los cuales son:
+
+
