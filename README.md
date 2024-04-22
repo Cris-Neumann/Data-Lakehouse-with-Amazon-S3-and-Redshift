@@ -85,3 +85,4 @@ el jsonpath tiene la siguiente estructura:
 A continuación una vista diseñada en Tableau, dado su conexión incorporada con Redshift, alojada en directorio 'dashboard', con ...
 
 ## Instalaciones adicionales
+- Se requiere tener instalado las siguientes 4 librerías se Python: boto3, configparser, psycopg2 y pymongo.
