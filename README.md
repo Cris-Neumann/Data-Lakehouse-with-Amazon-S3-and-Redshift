@@ -29,4 +29,4 @@ El dataset de Yelp consta de 5 archivos json, cada uno con información distinta
 
 Estos son los atributos que tienen cada archivo json en bruto, donde los campos enytre llaves ('{}') son campos anidados del dataset:
 
-<img src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/a69bf171-4788-4607-a372-b9d486528e8f" align="center" height="300" width="397" />
+<img src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/a69bf171-4788-4607-a372-b9d486528e8f" align="Center" height="300" width="397" />
