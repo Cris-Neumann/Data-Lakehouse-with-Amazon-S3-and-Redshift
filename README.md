@@ -17,9 +17,9 @@ Redshift, usando el metodo "copy" y su opción "jsonpath". Finalmente, se muestr
 Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de los datos.
 
 ## Modelado de datos
-Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio, y
-par que sus propietarios puedan conectar con sus clientes y fomentar sus negocios. El dataset de Yelpconsta de 5 archivos json, cada uno con información
-distinta acerca del negocio, los cuales son:
+Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio. También
+se usa para que sus propietarios puedan conectar con sus clientes, fomentar sus negocios y los clientes puedan comaprtir información entre ellos.
+El dataset de Yelp consta de 5 archivos json, cada uno con información distinta acerca del negocio, los cuales son:
 
 -  business.json: Contiene datos comerciales, incluidos datos de ubicación, atributos y categorías.
 -  checkin.json: Registros en un negocio (su id y fecha).
