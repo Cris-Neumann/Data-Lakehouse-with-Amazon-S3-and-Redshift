@@ -81,4 +81,4 @@ el jsonpath tiene la siguiente estructura:
 **5)** Finalmente, con la ejecución del script etl_data_warehouse.py se insertan todos los registros de S3 en el Data Warehouse de Redshift.
 
 ## Dashboard y preguntas de negocio
-
+A continuación una vista diseñada en Tableau, dado su conexión incorporada con Redshift, alojada en directorio 'dashboard', con ...
