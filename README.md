@@ -55,8 +55,8 @@ llamadas tablas de "hechos" (medidas de negocio) y "dimensiones" (atributos de l
 
 ## Detalles de ejecución
 Primero, para poder cargar los archivos json desde S3 hasta Redshift, se usa una conexión nativa de AWS entre dichos servicios, usando el metodo "copy" y su opción "jsonpath", donde esta última es una forma estandarizada para consultar elementos de un objeto JSON. Estos jsonpath deben insertarse previamente en el bucket de S3,
-trabajo que lo realiza el script "insert_jsonpath.py", hacia el directorio "yelp_jsonpath_files". Por ejemplo, para el json "review", que contine las reseñas de clientes,
-el jsonpath tiene la siguiente estriuctura: 
+trabajo que lo realiza el script "insert_jsonpath.py", hacia el directorio "yelp_jsonpath_files". Por ejemplo, para el json "review", que contiene las reseñas de clientes,
+el jsonpath tiene la siguiente estructura: 
 
 ```
 {
