@@ -27,7 +27,7 @@ El dataset de Yelp consta de 5 archivos json, cada uno con información distinta
 -  tip.json: Consejos escritos por un usuario sobre un negocio. Los consejos son más breves que las reseñas y transmiten sugerencias rápidas.
 -  user.json:	Datos del usuario, incluida la asignación de amigos del usuario y todos los metadatos asociados con el usuario.
 
-Estos son los atributos que tienen cada archivo json en bruto, donde los campos entre llaves ('{}') son campos anidados del dataset:
+Estos son los atributos que tienn cada archivo json en bruto, donde los campos entre llaves ('{}') son campos anidados del dataset:
 
 <div align="center">
 	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
