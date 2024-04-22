@@ -54,7 +54,7 @@ llamadas tablas de "hechos" (medidas de negocio) y "dimensiones" (atributos de l
 </div>
 
 ## Detalles de ejecución
-**Primero**, para poder cargar los archivos json desde S3 hasta Redshift, se usa una conexión nativa de AWS entre dichos servicios, usando el metodo "copy" y su opción "jsonpath", donde esta última es una forma estandarizada para consultar elementos de un objeto JSON. Estos jsonpath deben insertarse previamente en el bucket de S3,
+**1)** Para poder cargar los archivos json desde S3 hasta Redshift, se usa una conexión nativa de AWS entre dichos servicios, usando el metodo "copy" y su opción "jsonpath", donde esta última es una forma estandarizada para consultar elementos de un objeto JSON. Estos jsonpath deben insertarse previamente en el bucket de S3,
 trabajo que lo realiza el script "insert_jsonpath.py", hacia el directorio "yelp_jsonpath_files". Por ejemplo, para el json "review", que contiene las reseñas de clientes,
 el jsonpath tiene la siguiente estructura: 
 
@@ -74,6 +74,8 @@ el jsonpath tiene la siguiente estructura:
   ]
 }
 ```
-
-
+**2)** Con la ejecución del script create_table.py se crearán todas las tablas necesarias en Amazon Redshift.
+**3)** Al ejecutar el script insert_data_lake.py se cargará el dataset de Yelp desde MongoDB hacia Amazon S3.
+**4)** Luego, con la ejecución del script transform_data_lake.py se modifican los formatos de los json anidados y se reduce el volumen de datos.
+**5)** Finalmente, con le ejecución del script etl_data_warehouse.py se insertan todos los registros de S3 en el Data Warehouse de Redshift.
 
