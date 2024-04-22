@@ -3,6 +3,7 @@
 ## Índice
 
 - [Resumen del proyecto](#Resumen-del-proyecto)
+- [Arquitectura empleada](#Arquitectura-empleada)
 - [Modelado de datos](#Modelado-de-datos)
 
 ## Resumen del proyecto
@@ -15,6 +16,9 @@ de Data Warehouse de ejemplo, el cual es implementado en Amazon Redshift, dada s
 y por ende ideal para analítica y reporting, y es poblado con datos provenientes del bucket mediante la conexión nativa entre S3 y
 Redshift, usando el metodo "copy" y su opción "jsonpath". Finalmente, se muestra un ejemplo de la conexion por defecto que trae
 Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de los datos.
+
+## Arquitectura empleada
+El esquema general del modo en que se relacionan las partes del sistema es el siguiente:
 
 ## Modelado de datos
 Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio. También
