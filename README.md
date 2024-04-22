@@ -13,4 +13,4 @@ en directorio stagging en el mismo bucket de S3. El paso siguiente es modelar lo
 de Data Warehouse de ejemplo, el cual es implementado en Amazon Redshift, dada su estructra orientada a columnas,
 y por ende ideal para analítica y reporting, y es poblado con datos provenientes del bucket mediante la conexión nativa entre S3 y
 Redshift, usando el metodo "copy" y su opción "jsonpath". Finalmente, se muestra un ejemplo de la conexion por defecto que trae
-Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de datos.
+Tableau con Redshift y potenciales preguntas de negocio sobre el dataset de Yelp que se derivan de la visualización de los datos.
