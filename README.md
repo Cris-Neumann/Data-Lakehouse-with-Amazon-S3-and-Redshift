@@ -40,5 +40,12 @@ donde los últimos campos del json "business" contiene campos extraidos desde el
 	<img width="550" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
 </div>
 
-Finalmente, luego de tener los datos preprocedaos en S3 y listos para insertar a Redshift, el esquema de ejemplo que se utilizará como Data Warehouse es uno llamado
-"esquema constelación" (ver en web de IBM: https://acortar.link/qWSUMB)
+Finalmente, luego de tener los datos preprocesados en S3 y listos para insertar a Redshift, el esquema de ejemplo que se utilizará como Data Warehouse es uno llamado
+"esquema constelación" (ver en web de IBM: https://acortar.link/qWSUMB), el cual es punto medio entre los esquemas "estrella" y "copo de nieve", basandose en las
+llamadas tablas de "hechos" (medidas de negocio) y "dimensiones" (atributos de las tablas de hechos), y creando el siguiente esquema:
+
+<div align="center">
+	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/2b9056f1-734c-477b-8f9b-9e30b4a5d1de">
+</div>
+
+
