@@ -106,6 +106,6 @@ Y por otro lado, la ciudad de Philadelphia tiene un promedio de calificación de
 - Debe crear un cluster de Amazon Redshift llamado 'redshift-cluster-1', y dentro de él crear una base de datos.
 - Finalmente, en AWS debe crear un rol de IAM (Identity and Access Management) que permita la conexión y gestión de S3 y Redshift. Para este caso de ejemplo,
 se creó un rol que utiliza una adaptación de la política (permisos) predefinida por AWS llamada 'AWSServiceRoleForRedshift', para que pueda conectarse con S3,
-añadiendo en el sector 'Statement', un 'Action' que permite la conexión a S3 (ver como construir políticas de AWS: https://acortar.link/BbMCqQ).
+añadiendo en el sector 'Statement', un 'Action' que permite la conexión a S3 (ver cómo construir políticas de AWS: https://acortar.link/BbMCqQ).
 
 
