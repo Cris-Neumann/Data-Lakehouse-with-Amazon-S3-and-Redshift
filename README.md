@@ -82,7 +82,20 @@ el jsonpath tiene la siguiente estructura:
 **5)** Finalmente, con la ejecución del script etl_data_warehouse.py se insertan todos los registros de S3 en el Data Warehouse de Redshift.
 
 ## Dashboard y preguntas de negocio
-A continuación una vista diseñada en Tableau, dado su conexión incorporada con Redshift, alojada en directorio 'dashboard', con ...
+A continuación, una vista diseñada en Tableau, dada su conexión incorporada con Redshift, cuyo archivo está alojado en directorio 'dashboard', a modo de ejemplo de las
+distintas visualizaciones de datos que podrían incorporarse, donde se muestran los promedios de calificación por ciudad, la cantidad de negocios por ciudad, 
+y el detalle dentro de cada ciudad de la calificación de cada negocio. Por ejemplo, el usuario del dahsboard podría, a raíz de la imagen, preguntarse y 
+ahondar en los detalles de porqué la ciudad de New Orleans tiene un promedio de calificación de 4.1 (escala de 1 a 5), teniendo 20 negocios activos.
+
+<div align="center">
+	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/9137903a-0143-4e36-b5f0-776fd7a6060c">
+</div>
+
+Y por otro lado, la ciudad de Philadelphia tiene un promedio de calificación de 2.9, teniendo 15 negocios activos, donde podría apreciarse qué locales tienen muy baja evaluación y entender el motivo de dichos números agregados.
+
+<div align="center">
+	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/cf96cdeb-6a79-459a-a79d-93ef981c7d38">
+</div>
 
 ## Instalaciones adicionales
 - Se requiere tener instalado las siguientes 4 librerías de Python: boto3 1.34.68, configparser, psycopg2 2.9.6 y pymongo 4.6.3.
