@@ -90,7 +90,7 @@ el jsonpath tiene la siguiente estructura:
 A continuación, una vista diseñada en Tableau, dada su conexión incorporada con Redshift, cuyo archivo está alojado en directorio 'dashboard', a modo de ejemplo de las
 distintas visualizaciones de datos que podrían incorporarse, donde se muestran los promedios de calificación por ciudad, la cantidad de negocios por ciudad, 
 y el detalle dentro de cada ciudad de la calificación de cada negocio. Por ejemplo, el usuario del dahsboard podría, a raíz de la imagen, preguntarse y 
-ahondar en los detalles de porqué la ciudad de New Orleans tiene un promedio de calificación de 4.1 (escala de 1 a 5), teniendo 20 negocios activos.
+ahondar en los detalles de por qué la ciudad de New Orleans tiene un promedio de calificación de 4.1 (escala de 1 a 5), teniendo 20 negocios activos.
 
 <div align="center">
 	<img width="600" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/9137903a-0143-4e36-b5f0-776fd7a6060c">
