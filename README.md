@@ -25,7 +25,7 @@ que se derivan de la visualización de los datos.
 El esquema general del modo en que se relacionan las partes del sistema es el siguiente:
 
 <div align="center">
-	<img width="600" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/674356e4-a253-48d3-a993-a8af2071333a">
+	<img width="900" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/674356e4-a253-48d3-a993-a8af2071333a">
 </div>
 
 ## Modelado de datos
