@@ -25,7 +25,7 @@ que se derivan de la visualización de los datos.
 El esquema general del modo en que se relacionan las partes del sistema es el siguiente:
 
 <div align="center">
-	<img width="900" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/674356e4-a253-48d3-a993-a8af2071333a">
+	<img width="800" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/674356e4-a253-48d3-a993-a8af2071333a">
 </div>
 
 ## Modelado de datos
@@ -42,14 +42,14 @@ El dataset de Yelp consta de 5 archivos json, cada uno con información distinta
 Estos son los atributos que tiene cada archivo json en bruto en MongoDB, donde los campos entre llaves ('{}') son campos anidados del dataset:
 
 <div align="center">
-	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
+	<img width="600" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/af19e104-bd04-4ff9-8f78-b7c5b0621611">
 </div>
 
 Luego de la transformación ejecutada en el bucket de S3 para cargar los archivos modificados en staging, la cual reduce el volumen de los datos, dada la limitación
 de espacio en AWS free tier, los archivos json quedan con estos atributos, donde los últimos campos del json "business" contiene campos extraidos desde el campo anidado "attributes":
 
 <div align="center">
-	<img width="550" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
+	<img width="600" alt="tablas_staging" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/fcb7ae7d-4bb7-4595-9285-3693c7a61d53">
 </div>
 
 Finalmente, luego de tener los datos preprocesados en S3 y listos para insertar a Redshift, el esquema de ejemplo que se utilizará como Data Warehouse es uno llamado
@@ -57,7 +57,7 @@ Finalmente, luego de tener los datos preprocesados en S3 y listos para insertar 
 llamadas tablas de "hechos" (medidas de negocio) y "dimensiones" (atributos de las tablas de hechos), y creando el siguiente esquema:
 
 <div align="center">
-	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/2b9056f1-734c-477b-8f9b-9e30b4a5d1de">
+	<img width="600" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/2b9056f1-734c-477b-8f9b-9e30b4a5d1de">
 </div>
 
 ## Detalles de ejecución
@@ -93,13 +93,13 @@ y el detalle dentro de cada ciudad de la calificación de cada negocio. Por ejem
 ahondar en los detalles de porqué la ciudad de New Orleans tiene un promedio de calificación de 4.1 (escala de 1 a 5), teniendo 20 negocios activos.
 
 <div align="center">
-	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/9137903a-0143-4e36-b5f0-776fd7a6060c">
+	<img width="600" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/9137903a-0143-4e36-b5f0-776fd7a6060c">
 </div>
 
 Y por otro lado, la ciudad de Philadelphia tiene un promedio de calificación de 2.9, teniendo 15 negocios activos, donde podría apreciarse qué locales tienen muy baja evaluación y entender el motivo de dichos números agregados.
 
 <div align="center">
-	<img width="481" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/cf96cdeb-6a79-459a-a79d-93ef981c7d38">
+	<img width="600" alt="esquema" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/cf96cdeb-6a79-459a-a79d-93ef981c7d38">
 </div>
 
 ## Instalaciones adicionales
