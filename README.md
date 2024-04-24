@@ -24,6 +24,10 @@ que se derivan de la visualización de los datos.
 ## Arquitectura empleada
 El esquema general del modo en que se relacionan las partes del sistema es el siguiente:
 
+<div align="center">
+	<img width="397" alt="tablas_raw" src="https://github.com/Cris-Neumann/Data-Lakehouse-with-Amazon-S3-and-Redshift/assets/99703152/674356e4-a253-48d3-a993-a8af2071333a">
+</div>
+
 ## Modelado de datos
 Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio. También
 se usa para que sus propietarios puedan conectar con sus clientes, fomentar sus negocios y los clientes puedan compartir información entre ellos.
