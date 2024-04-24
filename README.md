@@ -29,9 +29,9 @@ El esquema general del modo en que se relacionan las partes del sistema es el si
 </div>
 
 ## Modelado de datos
-Yelp es una plataforma que recopila información sobre negocios del entorno en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio. También
-se usa para que sus propietarios puedan conectar con sus clientes, fomentar sus negocios y los clientes puedan compartir información entre ellos.
-El dataset de Yelp consta de 5 archivos json, cada uno con información distinta acerca del negocio, los cuales son:
+Yelp es una plataforma que recopila información sobre negocios en tiempo real, esto es: reseñas, consejos y fotografías sobre cada negocio. También
+se usa para que sus propietarios puedan conectar con sus clientes, fomentar sus empresas y los clientes puedan compartir información entre ellos.
+El dataset de Yelp consta de 5 archivos json, cada uno con información distinta acerca de los negocios, los cuales son:
 
 -  business.json: Contiene datos comerciales, incluidos datos de ubicación, atributos y categorías.
 -  checkin.json: Registros en un negocio (su id y fecha).
